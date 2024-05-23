@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const whatsappURL = `https://wa.me/6285163594245?text=${encodeURIComponent(whatsappMessage)}`;
 
             const cardHTML = `
-                <div class="col-md-6 col-lg-4 col-xl-3 col-sm-6 mb-4">
+                <div class="card2 col-xm-6 col-md-6 col-lg-4 col-xl-3 col-sm-6 mb-4">
                     <div class="card">
                         <img src="${invitation.image}" class="card-img-top" alt="${invitation.name}">
                         <div class="card-body col-sm-12">

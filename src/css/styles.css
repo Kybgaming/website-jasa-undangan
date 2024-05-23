@@ -23,6 +23,7 @@ body{
 
 
 .parallax{
+    overflow: hidden;
     padding-top: 10px;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
@@ -99,6 +100,8 @@ h1 {
     background-color: rgb(219, 198, 8);
 }
 .contact {
+    margin: 0;
+    width: 100%;
     padding: 20px;
     height: 100%;
     background-color: #1a1a1a;
@@ -111,6 +114,29 @@ h1 {
 // No media query for `xs` since this is the default in Bootstrap */
 
 /* // Small devices (landscape phones, 576px and up) */
+@media (max-width: 575.98px) {
+    body{
+        font-size: 10px;
+    }
+    .card2{
+    font-size: 20px;
+    width: 250px;
+    }
+    .logo{
+        height: 40px;
+    }
+    .invit-card {
+        font-size: 10px;
+        margin: auto;
+        padding-left: 40px;
+        padding-right: 10px;
+        display: flex;
+
+    }
+    .card2 a{
+        font-size: 10px;
+    }
+}
 @media (min-width: 576px) { 
     body{
         font-size: 1rem;
@@ -121,7 +147,11 @@ h1 {
     .logo{
         height: 50px;
     }
+    .contact {
+        font-size: 15px;
+    }
  }
+
 
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
@@ -133,6 +163,9 @@ h1 {
     }
     .logo{
         height: 60px;
+    }
+    .contact {
+        font-size: 20px;
     }
  }
 
@@ -147,6 +180,9 @@ h1 {
     .logo{
         height: 70px;
     }
+    .contact {
+        font-size: 20px;
+    }
  }
 
 /* // X-Large devices (large desktops, 1200px and up) */
@@ -160,6 +196,9 @@ h1 {
     .logo{
         height: 80px;
     }
+    .contact {
+        font-size: 20px;
+    }
  }
 
 /* // XX-Large devices (larger desktops, 1400px and up) */
@@ -169,6 +208,9 @@ h1 {
     }
     .card a{
         font-size: 1rem;
+    }
+    .contact {
+        font-size: 3rem;
     }
     .logo{
         height: 100px;
