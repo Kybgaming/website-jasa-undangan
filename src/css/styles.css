@@ -110,14 +110,14 @@ body{
       text-decoration: none;
   }
   .customer-service{
+    z-index: 110;
       position: fixed;
       top: 200px;
       left: 850px;
   }
   .customer-service img{
-      z-index: 105;
-      height: 180px;
-      width: 250px;
+      height: 100px;
+      width: 180px;
   }
   .logo img{
     margin-top: 17px;
@@ -132,8 +132,8 @@ body{
     font-size: 25px;
     width: 300px;
     height: 40px;
-    left: 200px;
-    top: 330px;
+    left: 60%;
+    top: 50%;
     position: fixed;
   }
   .konsultasi {
@@ -148,7 +148,16 @@ body{
     left: 550px;
     top: 330px;
     position: fixed;
-  }
+  } 
+  @keyframes colorChange {
+    0% { background-color: transparent; }
+    50% { background-color: rgba(4, 57, 131, 0.8); }
+    100% { background-color: transparent; }
+}
+
+.katalog:hover, .konsultasi:hover {
+    animation: colorChange 1s infinite;
+}
   /* // X-Small devices (portrait phones, less than 576px)
   // No media query for `xs` since this is the default in Bootstrap */
   
@@ -200,6 +209,25 @@ body{
       .contact{
           font-size: 10px;
       }
+      body img{
+        width: 500px;
+      }
+      .katalog {
+        padding: 3px;
+        left: 12%;
+        top: 62%;
+        height: 30px;
+        font-size: 15px;
+        width: 130px;
+      }
+      .konsultasi {
+        padding: 3px;
+        left: 50%;
+        top: 62%;
+        height: 30px;
+        font-size: 14px;
+        width: 40%;
+      }
       #medsos p{
         margin: auto;
       }
@@ -210,6 +238,15 @@ body{
       .bg-black{
         font-size: 10px;
       }
+      .customer-service img{
+        height: 80px;
+        width: 100px;
+    }
+    .customer-service{
+        position: fixed;
+        top: 70%;
+        left: 80%;
+    }
   }
   @media (min-width: 576px) { 
       body{
@@ -234,6 +271,31 @@ body{
         margin-top: 12px;
         width: 15%;
       }
+      .katalog {
+        padding: 3px;
+        left: 16%;
+        top: 62%;
+        height: 30px;
+        font-size: 15px;
+        width: 30%;
+      }
+      .konsultasi {
+        padding: 3px;
+        left: 50%;
+        top: 62%;
+        height: 30px;
+        font-size: 14px;
+        width: 40%;
+      }
+      .customer-service img{
+        height: 90px;
+        width: 130px;
+    }
+    .customer-service{
+        position: fixed;
+        top: 70%;
+        left: 80%;
+    }
    }
   
   
@@ -258,6 +320,31 @@ body{
         margin-top: 12px;
         width: 15%;
       }
+      .katalog {
+        padding: 3px;
+        left: 15%;
+        top: 70%;
+        height: 30px;
+        font-size: 15px;
+        width: 30%;
+      }
+      .konsultasi {
+        padding: 3px;
+        left: 50%;
+        top: 70%;
+        height: 30px;
+        font-size: 14px;
+        width: 40%;
+      }
+    .customer-service img{
+        height: 100px;
+        width: 180px;
+    }
+    .customer-service{
+        position: fixed;
+        top: 70%;
+        left: 80%;
+    }
    }
   
   /* // Large devices (desktops, 992px and up) */
@@ -281,6 +368,31 @@ body{
         margin-top: 12px;
         width: 15%;
       }
+      .katalog {
+        padding: 3px;
+        left: 15%;
+        top: 70%;
+        height: 35px;
+        font-size: 20px;
+        width: 30%;
+      }
+      .konsultasi {
+        padding: 3px;
+        left: 50%;
+        top: 70%;
+        height: 35px;
+        font-size: 20px;
+        width: 40%;
+      }
+      .customer-service img{
+        height: 100px;
+        width: 180px;
+    }
+    .customer-service{
+        position: fixed;
+        top: 70%;
+        left: 80;
+    }
    }
   
   /* // X-Large devices (large desktops, 1200px and up) */
@@ -304,6 +416,31 @@ body{
         margin-top: 15px;
         width: 15%;
       }
+      .katalog {
+        padding: 3px;
+        left: 15%;
+        top: 62%;
+        height: 30px;
+        font-size: 15px;
+        width: 30%;
+      }
+      .konsultasi {
+        padding: 3px;
+        left: 50%;
+        top: 70%;
+        height: 30px;
+        font-size: 14px;
+        width: 40%;
+      }
+      .customer-service img{
+        height: 100px;
+        width: 180px;
+    }
+    .customer-service{
+        position: fixed;
+        top: 60%;
+        left: 850px;
+    }
    }
   
   /* // XX-Large devices (larger desktops, 1400px and up) */
@@ -324,4 +461,13 @@ body{
         margin-top: 15px;
         width: 15%;
       }
+      .customer-service img{
+        height: 100px;
+        width: 180px;
+    }
+    .customer-service{
+        position: fixed;
+        top: 200px;
+        left: 850px;
+    }
    }
