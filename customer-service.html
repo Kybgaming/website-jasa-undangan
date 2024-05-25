@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service - Digimo Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 50px 0;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    padding-top: 500px;
+    max-width: 600px;
+    margin: 100px 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="date"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+.checkbox-group,
+.radio-group {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.checkbox-group label,
+.radio-group label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.checkbox-group input,
+.radio-group input {
+    margin-right: 10px;
+}
+
+button.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+input[type="text"][id="acara-lainnya-text"] {
+    margin-left: 20px;
+    width: calc(100% - 40px);
+}
+.logo {
+      top: -3px;
+      background-color: rgba(29, 28, 28, 0.8); /* Changed background color to transparent black */
+      width: 100%;
+      position: fixed;
+      z-index: 105;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      
+  }
+  
+  /* // Small devices (landscape phones, 576px and up) */
+  @media (max-width: 575.98px) {
+      .logo{
+          height: 40px;
+      }
+      .logo p{
+          font-size: 10px;
+      }
+    }
+  @media (min-width: 576px) { 
+      .logo{
+          height: 50px;
+      }
+    }
+  
+  /* // Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) { 
+      body{
+          font-size: 1rem;
+      }
+      .card a{
+          font-size: 1rem;
+      }
+      .logo{
+          height: 60px;
+      }
+    }
+  
+  /* // Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) { 
+      .logo{
+          height: 70px;
+      }
+    }
+  
+  /* // X-Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) { 
+      .logo{
+          height: 60px;
+      }
+    }
+  
+  /* // XX-Large devices (larger desktops, 1400px and up) */
+  @media (min-width: 1400px) { 
+      .logo{
+          height: 60px;
+      }
+   }
+
+    </style>
+</head>
+<body>
+    <div class="logo fs-5 text-center text-white""><img class="mt-3" src="./picture/logo/logo invim2.png" alt="" width="15%"></div>
+    <div class="container">
+        <h1 style="margin-top: 300px;">Customer Service</h1>
+        <h2><span style="font-family: 'sans-serif';">INVIM</span> Website</h2>
+        <form id="customerForm">
+            <div class="form-group">
+                <label for="nama">1. Nama:</label>
+                <input type="text" id="nama" name="nama" placeholder="Contoh: Putri" required>
+            </div>
+            <div class="form-group">
+                <label>2. Pilih Jenis Undangan: (Bisa pilih lebih dari 1 jenis undangan)</label>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="undangan-website-foto" name="jenis-undangan" value="Undangan Website (link) Dengan Foto">
+                        Undangan Website (link) Dengan Foto
+                    </label>
+                </div>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="undangan-website-tanpa-foto" name="jenis-undangan" value="Undangan Website (link) Tanpa Foto">
+                        Undangan Website (link) Tanpa Foto
+                    </label>
+                </div>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="undangan-video" name="jenis-undangan" value="Undangan Video">
+                        Undangan Video
+                    </label>
+                </div>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="undangan-gambar" name="jenis-undangan" value="Undangan Gambar (JPEG)">
+                        Undangan Gambar (JPEG)
+                    </label>
+                </div>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="undangan-cetak" name="jenis-undangan" value="Undangan Cetak (Kertas)">
+                        Undangan Cetak (Kertas)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>3. Pilih Jenis Acara:</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" id="acara-pernikahan" name="jenis-acara" value="Pernikahan/Lamaran" required>
+                        Pernikahan/Lamaran
+                    </label>
+                </div>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" id="acara-ulang-tahun" name="jenis-acara" value="Ulang Tahun/Khitan/Aqiqah">
+                        Ulang Tahun/Khitan/Aqiqah
+                    </label>
+                </div>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" id="acara-lainnya" name="jenis-acara" value="Acara lainnya">
+                        Acara lainnya (wisuda, grand opening, DLL)
+                    </label>
+                    <input type="text" id="acara-lainnya-text" name="acara-lainnya-text" placeholder="Sebutkan jenis acara" style="display: none;">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="tanggal-acara">4. Tanggal Acara:</label>
+                <input type="date" id="tanggal-acara" name="tanggal-acara" required>
+            </div>
+            <button type="button" class="submit-btn" onclick="sendWhatsApp()">Kirim via WhatsApp</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('input[name="jenis-acara"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const acaraLainnyaText = document.getElementById('acara-lainnya-text');
+                if (this.value === 'Acara lainnya') {
+                    acaraLainnyaText.style.display = 'block';
+                    acaraLainnyaText.required = true;
+                } else {
+                    acaraLainnyaText.style.display = 'none';
+                    acaraLainnyaText.required = false;
+                }
+            });
+        });
+
+        function sendWhatsApp() {
+            const nama = document.getElementById('nama').value;
+            const undanganElements = document.querySelectorAll('input[name="jenis-undangan"]:checked');
+            const acaraElements = document.querySelectorAll('input[name="jenis-acara"]:checked');
+            const tanggalAcara = document.getElementById('tanggal-acara').value;
+            const acaraLainnyaText = document.getElementById('acara-lainnya-text').value;
+
+            let undangan = [];
+            undanganElements.forEach(el => {
+                undangan.push(el.value);
+            });
+
+            let acara = [];
+            acaraElements.forEach(el => {
+                acara.push(el.value);
+            });
+
+            if (acara.includes('Acara lainnya')) {
+                acara = acara.map(item => item === 'Acara lainnya' ? `Acara lainnya: ${acaraLainnyaText}` : item);
+            }
+
+            const message = `Customer Service - INVIM Website
+1. Nama: ${nama}
+2. Pilih Jenis Undangan: ${undangan.join(', ')}
+3. Pilih Jenis Acara: ${acara.join(', ')}
+4. Tanggal Acara: ${tanggalAcara}`;
+
+            const whatsappURL = `https://api.whatsapp.com/send?phone=6285163594245&text=${encodeURIComponent(message)}`;
+
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+</html>
