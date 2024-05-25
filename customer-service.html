@@ -29,7 +29,6 @@
 .container {
     box-shadow: 100px 10px 10px rgba(251, 249, 249, 0.952);
     border: 3px solid black;
-    z-index: -2;
     color: white;
     padding-top: 500px;
     max-width: 600px;
@@ -128,8 +127,8 @@ input[type="text"][id="acara-lainnya-text"] {
     z-index: -99;
   }
   .logo-terpisah img{
-   z-index: -1;
-   left: 5%;
+    z-index: -1;
+    left: 5%;
    width: 900px;
    position: fixed;
    top: -20%;
@@ -149,12 +148,12 @@ input[type="text"][id="acara-lainnya-text"] {
       .logo p{
           font-size: 10px;
       }
-   .logo-terpisah img{
-    right: 100px;
+      .logo-terpisah img{
     z-index: -1;
-    left: 10px;
-    width: 10px;    
-    position: fixed;
+    left: -10px;
+   width: 200px;    
+   position: fixed;
+   top: -20%;
   }
     }
   @media (min-width: 576px) { 
@@ -219,7 +218,7 @@ input[type="text"][id="acara-lainnya-text"] {
         <form id="customerForm">
             <div class="form-group">
                 <label for="nama">1. Nama:</label>
-                <input type="text" id="nama" name="nama" placeholder="Contoh: Putri" required>
+                <input type="text" id="nama" name="nama" placeholder="Contoh: Dewi" required>
             </div>
             <div class="form-group">
                 <label>2. Pilih Jenis Undangan: (Bisa pilih lebih dari 1 jenis undangan)</label>
@@ -280,7 +279,7 @@ input[type="text"][id="acara-lainnya-text"] {
                 <label for="tanggal-acara">4. Tanggal Acara:</label>
                 <input type="date" id="tanggal-acara" name="tanggal-acara" required>
             </div>
-            <button type="button" class="submit-btn" onclick="sendWhatsApp()">Kirim via WhatsApp</button>
+            <button type="button" class="submit-btn" onclick="sendWhatsApp()"><i class="fab fa-whatsapp"> Kirim via WhatsApp</i></button>
         </form>
         <div class="logo-terpisah"><img src="./src/css/logo.png" alt=""></div>
     </div>
@@ -300,36 +299,76 @@ input[type="text"][id="acara-lainnya-text"] {
         });
 
         function sendWhatsApp() {
-            const nama = document.getElementById('nama').value;
-            const undanganElements = document.querySelectorAll('input[name="jenis-undangan"]:checked');
-            const acaraElements = document.querySelectorAll('input[name="jenis-acara"]:checked');
-            const tanggalAcara = document.getElementById('tanggal-acara').value;
-            const acaraLainnyaText = document.getElementById('acara-lainnya-text').value;
+    const nama = document.getElementById('nama').value;
+    const undanganElements = document.querySelectorAll('input[name="jenis-undangan"]:checked');
+    const acaraElements = document.querySelectorAll('input[name="jenis-acara"]:checked');
+    const tanggalAcaraInput = document.getElementById('tanggal-acara');
+    const tanggalAcara = new Date(tanggalAcaraInput.value);
+    const today = new Date();
+    const minimumDifference = 1; // Minimum difference in days
 
-            let undangan = [];
-            undanganElements.forEach(el => {
-                undangan.push(el.value);
-            });
+    // Validasi form
+    if (nama.trim() === '') {
+        alert('Silakan isi nama Anda.');
+        return; // Stop function execution
+    }
 
-            let acara = [];
-            acaraElements.forEach(el => {
-                acara.push(el.value);
-            });
+    if (undanganElements.length === 0) {
+        alert('Silakan pilih jenis undangan.');
+        return; // Stop function execution
+    }
 
-            if (acara.includes('Acara lainnya')) {
-                acara = acara.map(item => item === 'Acara lainnya' ? `Acara lainnya: ${acaraLainnyaText}` : item);
-            }
+    if (acaraElements.length === 0) {
+        alert('Silakan pilih jenis acara.');
+        return; // Stop function execution
+    }
+    if (tanggalAcaraInput.value === '') {
+        alert('Silakan pilih tanggal acara.');
+        return; // Stop function execution
+    }
 
-            const message = `Customer Service - INVIM Website
+    // Jika jenis acara 'Acara lainnya', pastikan teks acara lainnya diisi
+    if (acaraElements.length === 1 && acaraElements[0].value === 'Acara lainnya' && acaraLainnyaText.trim() === '') {
+        alert('Silakan sebutkan jenis acara lainnya.');
+        return; // Stop function execution
+    }
+
+    // Validasi tanggal acara
+    const differenceInTime = tanggalAcara.getTime() - today.getTime();
+    const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+
+    if (differenceInDays <= minimumDifference) {
+        alert('Tanggal acara harus lebih dari 1 hari dari tanggal hari ini.');
+        return; // Stop function execution
+    }
+
+    // Proses pengiriman pesan jika validasi berhasil
+    let undangan = [];
+    undanganElements.forEach(el => {
+        undangan.push(el.value);
+    });
+
+    let acara = [];
+    acaraElements.forEach(el => {
+        acara.push(el.value);
+    });
+
+    if (acara.includes('Acara lainnya')) {
+        acara = acara.map(item => item === 'Acara lainnya' ? `Acara lainnya: ${acaraLainnyaText}` : item);
+    }
+
+    const message = `Customer Service - INVIM Website
 1. Nama: ${nama}
-2. Pilih Jenis Undangan: ${undangan.join(', ')}
-3. Pilih Jenis Acara: ${acara.join(', ')}
-4. Tanggal Acara: ${tanggalAcara}`;
+2. Undangan: ${undangan.join(', ')}
+3. Jenis Acara: ${acara.join(', ')}
+4. Tanggal Acara: ${tanggalAcaraInput.value}`;
 
-            const whatsappURL = `https://api.whatsapp.com/send?phone=6285163594245&text=${encodeURIComponent(message)}`;
+    const whatsappURL = `https://api.whatsapp.com/send?phone=6285163594245&text=${encodeURIComponent(message)}`;
 
-            window.open(whatsappURL, '_blank');
-        }
+    window.open(whatsappURL, '_blank');
+}
+
+
     </script>
 </body>
 </html>
