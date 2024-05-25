@@ -302,15 +302,10 @@ input[type="text"][id="acara-lainnya-text"] {
     const nama = document.getElementById('nama').value;
     const undanganElements = document.querySelectorAll('input[name="jenis-undangan"]:checked');
     const acaraElements = document.querySelectorAll('input[name="jenis-acara"]:checked');
-<<<<<<< HEAD
     const tanggalAcaraInput = document.getElementById('tanggal-acara');
     const tanggalAcara = new Date(tanggalAcaraInput.value);
     const today = new Date();
     const minimumDifference = 1; // Minimum difference in days
-=======
-    const tanggalAcara = document.getElementById('tanggal-acara').value;
-    const acaraLainnyaText = document.getElementById('acara-lainnya-text').value;
->>>>>>> cb652851e6fa9d77fc94ca921b4ae25118b97884
 
     // Validasi form
     if (nama.trim() === '') {
@@ -327,11 +322,7 @@ input[type="text"][id="acara-lainnya-text"] {
         alert('Silakan pilih jenis acara.');
         return; // Stop function execution
     }
-<<<<<<< HEAD
     if (tanggalAcaraInput.value === '') {
-=======
-    if (tanggalAcara.trim() === '') {
->>>>>>> cb652851e6fa9d77fc94ca921b4ae25118b97884
         alert('Silakan pilih tanggal acara.');
         return; // Stop function execution
     }
@@ -342,7 +333,6 @@ input[type="text"][id="acara-lainnya-text"] {
         return; // Stop function execution
     }
 
-<<<<<<< HEAD
     // Validasi tanggal acara
     const differenceInTime = tanggalAcara.getTime() - today.getTime();
     const differenceInDays = differenceInTime / (1000 * 3600 * 24);
@@ -352,8 +342,6 @@ input[type="text"][id="acara-lainnya-text"] {
         return; // Stop function execution
     }
 
-=======
->>>>>>> cb652851e6fa9d77fc94ca921b4ae25118b97884
     // Proses pengiriman pesan jika validasi berhasil
     let undangan = [];
     undanganElements.forEach(el => {
@@ -373,7 +361,6 @@ input[type="text"][id="acara-lainnya-text"] {
 1. Nama: ${nama}
 2. Undangan: ${undangan.join(', ')}
 3. Jenis Acara: ${acara.join(', ')}
-<<<<<<< HEAD
 4. Tanggal Acara: ${tanggalAcaraInput.value}`;
 
     const whatsappURL = `https://api.whatsapp.com/send?phone=6285163594245&text=${encodeURIComponent(message)}`;
@@ -381,14 +368,6 @@ input[type="text"][id="acara-lainnya-text"] {
     window.open(whatsappURL, '_blank');
 }
 
-=======
-4. Tanggal Acara: ${tanggalAcara}`;
-
-    const whatsappURL = `https://api.whatsapp.com/send?phone=6285163594245&text=${encodeURIComponent(message)}`;
-
-    window.open(whatsappURL, '_blank');
-}
->>>>>>> cb652851e6fa9d77fc94ca921b4ae25118b97884
 
     </script>
 </body>
