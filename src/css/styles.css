@@ -181,8 +181,13 @@ body{
           width: 60%;
       }
       .invit-card{
+<<<<<<< HEAD
         margin: auto;
         padding: 20px 0 0 8px;
+=======
+        margin: 0;
+        padding: 20px 0 0 0;
+>>>>>>> 6cd982b9f0e8da74460efd7891531ff04ebd6b76
       }
       .card img{
          height: 100px ;
