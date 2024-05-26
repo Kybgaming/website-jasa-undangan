@@ -303,11 +303,21 @@
         });
 
         function sendWhatsApp() {
+<<<<<<< HEAD
             const nama = document.getElementById('nama').value;
             const undanganElements = document.querySelectorAll('input[name="jenis-undangan"]:checked');
             const acaraElements = document.querySelectorAll('input[name="jenis-acara"]:checked');
             const tanggalAcaraInput = document.getElementById('tanggal-acara');
             const acaraLainnyaText = document.getElementById('acara-lainnya-text').value.trim();
+=======
+    const nama = document.getElementById('nama').value;
+    const undanganElements = document.querySelectorAll('input[name="jenis-undangan"]:checked');
+    const acaraElements = document.querySelectorAll('input[name="jenis-acara"]:checked');
+    const tanggalAcaraInput = document.getElementById('tanggal-acara');
+    const tanggalAcara = new Date(tanggalAcaraInput.value);
+    const today = new Date();
+    const minimumDifference = 1; // Minimum difference in days
+>>>>>>> 79fe250f8518ddd2c7438a7b6d8e2074a09c0fb4
 
             const today = new Date();
             const tanggalAcara = new Date(tanggalAcaraInput.value);
@@ -319,20 +329,37 @@
                 return; // Stop function execution
             }
 
+<<<<<<< HEAD
             if (undanganElements.length === 0) {
                 alert('Silakan pilih jenis undangan.');
                 return; // Stop function execution
             }
+=======
+    if (acaraElements.length === 0) {
+        alert('Silakan pilih jenis acara.');
+        return; // Stop function execution
+    }
+    if (tanggalAcaraInput.value === '') {
+        alert('Silakan pilih tanggal acara.');
+        return; // Stop function execution
+    }
+>>>>>>> 79fe250f8518ddd2c7438a7b6d8e2074a09c0fb4
 
             if (acaraElements.length === 0) {
                 alert('Silakan pilih jenis acara.');
                 return; // Stop function execution
             }
 
+<<<<<<< HEAD
             if (tanggalAcaraInput.value === '') {
                 alert('Silakan pilih tanggal acara.');
                 return; // Stop function execution
             }
+=======
+    // Validasi tanggal acara
+    const differenceInTime = tanggalAcara.getTime() - today.getTime();
+    const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+>>>>>>> 79fe250f8518ddd2c7438a7b6d8e2074a09c0fb4
 
             // Jika jenis acara 'Acara lainnya', pastikan teks acara lainnya diisi
             if (acaraElements.length === 1 && acaraElements[0].value === 'Acara lainnya' && acaraLainnyaText === '') {
@@ -340,9 +367,17 @@
                 return; // Stop function execution
             }
 
+<<<<<<< HEAD
             // Validasi tanggal acara
             const differenceInTime = tanggalAcara.getTime() - today.getTime();
             const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+=======
+    // Proses pengiriman pesan jika validasi berhasil
+    let undangan = [];
+    undanganElements.forEach(el => {
+        undangan.push(el.value);
+    });
+>>>>>>> 79fe250f8518ddd2c7438a7b6d8e2074a09c0fb4
 
             if (differenceInDays <= minimumDifference) {
                 alert('Tanggal acara harus lebih dari 1 hari dari tanggal hari ini.');
@@ -370,7 +405,15 @@
 3. Jenis Acara: ${acara.join(', ')}
 4. Tanggal Acara: ${tanggalAcaraInput.value}`;
 
+<<<<<<< HEAD
             const whatsappURL = `https://api.whatsapp.com/send?phone=6285163594245&text=${encodeURIComponent(message)}`;
+=======
+    const whatsappURL = `https://api.whatsapp.com/send?phone=6285163594245&text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, '_blank');
+}
+
+>>>>>>> 79fe250f8518ddd2c7438a7b6d8e2074a09c0fb4
 
             window.open(whatsappURL, '_blank');
         }
