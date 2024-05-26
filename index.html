@@ -14,16 +14,24 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+    <div class="logo1"><img src="./src/css/logo.webp" alt=""></div>
     <a href="#katalog1"><div class="katalog"><i class="fas fa-images">
         Katalog</i></div></a>
     <a href="https://api.whatsapp.com/send?phone=6285163594245&text=Halo Saya ingin bertanya Seputar Undangan, Bisa di bantu?" target="_blank"><div class="konsultasi "><i class="fab fa-whatsapp">
         Konsultasi Sekarang</i></div></a>
     <div class="logo fs-5 text-center text-white""><img src="./picture/logo/logo invim2.png" alt=""></div> <div class="parallax mt-5">
         <div class="customer-service">
-            <a href="customer-service.html" target="_blank"><img src="./picture/logo/wa.png" alt=""></a>
+            <a href="customer-service.html" target="_blank"><img src="./picture/logo/wa.webp" alt=""></a>
          </div>
-        <div class="underscore"></div>
-        <div data-aos="zoom-in-left" class="text-center mt-5 mb-4 fs-lg-5" style="font-size: 1rem; font-family: 'cursive';"><h2>Silahkan Pilih Jenis Undangan:</h2></div>
+        <div class="underscore mb-3"></div>
+        <div class="about">
+            <img src="./picture/deskripsi2.webp" alt="">
+            <div class="ms-4">
+                <h2>Undangan Invim</h2>
+                <p>Biarkan undangan website kami menjadi perwakilan gaya modern Anda, menarik perhatian dan mengundang antusiasme dari tamu Anda yang menghargai keindahan dan inovasi.</p>
+            </div>
+        </div>
+        <div data-aos="zoom-in-left" class="text-center mt-5 mb-4 fs-lg-5" style=" font-family: Verdana, Geneva, Tahoma, sans-serif;"><h2>Silahkan Pilih Jenis Undangan:</h2></div>
         <div class="layanan mb-5 d-flex justify-content-center">
             <button data-aos="zoom-in-left" type="button" class="btn btn-lg ms-3 bg-dark text-white" data-type="web" onclick="showInvitations('Website')"><i class="fas fa-globe"></i>  WEBSITE</button>
             <button data-aos="zoom-in-right" id="videoJpgButton" class="btn btn-lg ms-3 bg-dark text-white" data-type="video-jpg" onclick="showInvitations('Video/Jpg')"><svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
@@ -36,6 +44,10 @@
             <button class="btn btn-outline-dark btn-lg" onclick="showInvitations('wedding')">Undangan Wedding</button>
             <button class="btn btn-outline-dark btn-lg" onclick="showInvitations('non-wedding')">Undangan Non-Wedding</button>
          </div> -->
+         <div class="search-container mb-3">
+            <input type="text" id="searchInput" placeholder="Cari kata kunci undangan contoh : Modern...">
+        </div>
+        
         <div class="invit-card row"  id="invitationCards">
             <!-- Cards will be inserted here by JavaScript -->
         </div>

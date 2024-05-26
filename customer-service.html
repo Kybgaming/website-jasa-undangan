@@ -7,212 +7,216 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-   
+    <link rel="icon" type="image/webp" href="./picture/favicon.webp"> <!-- Add online favicon -->
+
     <style>
         body {
-    color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 50px 0;
-    background-color: #f4f4f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url('/src/css/background3.webp');
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 50px 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('/src/css/background3.webp');
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
 
-.container {
-    box-shadow: 100px 10px 10px rgba(251, 249, 249, 0.952);
-    border: 3px solid black;
-    color: white;
-    padding-top: 500px;
-    max-width: 600px;
-    margin: 100px 20px;
-    padding: 20px;
-    background-image: url('./src/css/background3.webp');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
+        .container {
+            box-shadow: 100px 10px 10px rgba(251, 249, 249, 0.952);
+            border: 3px solid black;
+            color: white;
+            padding-top: 500px;
+            max-width: 600px;
+            margin: 100px 20px;
+            padding: 20px;
+            background-image: url('./src/css/background3.webp');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
 
-h1, h2 {
-    z-index: 10;
-    text-align: center;
-    color: #ffffff;
-}
+        h1, h2 {
+            z-index: 10;
+            text-align: center;
+            color: #ffffff;
+        }
 
-.form-group {
-    
-    margin-bottom: 15px;
-}
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-label {
-    display: block;
-    z-index: 10;
-    margin-bottom: 5px;
-    color: #ffffff;
-}
+        label {
+            display: block;
+            z-index: 10;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
 
-input[type="text"],
-input[type="date"] {
-    z-index: 10;
-    width: calc(100% - 22px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 5px;
-}
+        input[type="text"],
+        input[type="date"] {
+            z-index: 10;
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
 
-.checkbox-group,
-.radio-group {
-    display: flex;
-    align-items: center;
-    margin-top: 5px;
-}
+        .checkbox-group,
+        .radio-group {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
 
-.checkbox-group label,
-.radio-group label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0;
-    cursor: pointer;
-}
+        .checkbox-group label,
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0;
+            cursor: pointer;
+        }
 
-.checkbox-group input,
-.radio-group input {
-    margin-right: 10px;
-}
+        .checkbox-group input,
+        .radio-group input {
+            margin-right: 10px;
+        }
 
-button.submit-btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px;
-}
+        button.submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
 
-button.submit-btn:hover {
-    background-color: #0056b3;
-}
+        button.submit-btn:hover {
+            background-color: #0056b3;
+        }
 
-input[type="text"][id="acara-lainnya-text"] {
-    z-index: 10;
-    margin-left: 20px;
-    width: calc(100% - 40px);
-}
-.logo {
-      top: -3px;
-      background-color: rgba(29, 28, 28, 0.8); /* Changed background color to transparent black */
-      width: 100%;
-      position: fixed;
-      z-index: 105;
-      border-bottom-left-radius: 50px;
-      border-bottom-right-radius: 50px;
-      
-  }
-  .logo-terpisah{
-    z-index: -99;
-  }
-  .logo-terpisah img{
-    z-index: -1;
-    left: 5%;
-   width: 900px;
-   position: fixed;
-   top: -20%;
-   
-    
+        input[type="text"][id="acara-lainnya-text"] {
+            z-index: 10;
+            margin-left: 20px;
+            width: calc(100% - 40px);
+        }
 
-  }
-  
-  /* // Small devices (landscape phones, 576px and up) */
-  @media (max-width: 575.98px) {
-    h1{
-        margin-top: 20px;
-    }
-      .logo{
-          height: 40px;
-      }
-      .logo p{
-          font-size: 10px;
-      }
-      .logo-terpisah img{
-    z-index: -1;
-    left: -10px;
-   width: 200px;    
-   position: fixed;
-   top: -20%;
-  }
-    }
-  @media (min-width: 576px) { 
-      .logo{
-          height: 50px;
-      }
-  .logo-terpisah img{
-    z-index: -1;
-    left: 10px;
-   width: 200px;
-   position: fixed;
-   top: -20%;
-  }
-    }
-  
-  /* // Medium devices (tablets, 768px and up) */
-  @media (min-width: 768px) { 
-      body{
-          font-size: 1rem;
-      }
-      h1{
-        margin-top: 10px;
-    }
-      .card a{
-          font-size: 1rem;
-      }
-      .logo{
-          height: 60px;
-      }
-    }
-  
-  /* // Large devices (desktops, 992px and up) */
-  @media (min-width: 992px) { 
-      .logo{
-          height: 70px;
-      }
-      h1{
-        margin-top: 300px;
-    }
-    }
-  
-  /* // X-Large devices (large desktops, 1200px and up) */
-  @media (min-width: 1200px) { 
-      .logo{
-          height: 60px;
-      }
-    }
-  
-  /* // XX-Large devices (larger desktops, 1400px and up) */
-  @media (min-width: 1400px) { 
-      .logo{
-          height: 60px;
-      }
-   }
+        .logo {
+            top: -3px;
+            background-color: rgba(29, 28, 28, 0.8);
+            width: 100%;
+            position: fixed;
+            z-index: 105;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
 
+        .logo-terpisah {
+            z-index: -99;
+        }
+
+        .logo-terpisah img {
+            z-index: -1;
+            left: 5%;
+            width: 900px;
+            position: fixed;
+            top: -20%;
+        }
+
+        @media (max-width: 575.98px) {
+            h1 {
+                margin-top: 20px;
+            }
+
+            .logo {
+                height: 40px;
+            }
+
+            .logo p {
+                font-size: 10px;
+            }
+
+            .logo-terpisah img {
+                z-index: -1;
+                left: -10px;
+                width: 200px;
+                position: fixed;
+                top: -20%;
+            }
+        }
+
+        @media (min-width: 576px) {
+            .logo {
+                height: 50px;
+            }
+
+            .logo-terpisah img {
+                z-index: -1;
+                left: 10px;
+                width: 200px;
+                position: fixed;
+                top: -20%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            body {
+                font-size: 1rem;
+            }
+
+            h1 {
+                margin-top: 10px;
+            }
+
+            .card a {
+                font-size: 1rem;
+            }
+
+            .logo {
+                height: 60px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .logo {
+                height: 70px;
+            }
+
+            h1 {
+                margin-top: 300px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .logo {
+                height: 60px;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .logo {
+                height: 60px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="logo fs-5 text-center text-white""><img class="mt-3" src="./picture/logo/logo invim2.png" alt="" width="15%"></div>
+    <div class="logo fs-5 text-center text-white">
+        <img class="mt-3" src="./picture/logo/logo invim2.png" alt="" width="15%">
+    </div>
     <div class="container">
         <h1>Customer Service</h1>
         <form id="customerForm">
@@ -279,7 +283,7 @@ input[type="text"][id="acara-lainnya-text"] {
                 <label for="tanggal-acara">4. Tanggal Acara:</label>
                 <input type="date" id="tanggal-acara" name="tanggal-acara" required>
             </div>
-            <button type="button" class="submit-btn" onclick="sendWhatsApp()"><i class="fab fa-whatsapp"> Kirim via WhatsApp</i></button>
+            <button type="button" class="submit-btn" onclick="sendWhatsApp()"><i class="fab fa-whatsapp"></i> Kirim via WhatsApp</button>
         </form>
         <div class="logo-terpisah"><img src="./src/css/logo.png" alt=""></div>
     </div>
@@ -299,97 +303,77 @@ input[type="text"][id="acara-lainnya-text"] {
         });
 
         function sendWhatsApp() {
-    const nama = document.getElementById('nama').value;
-    const undanganElements = document.querySelectorAll('input[name="jenis-undangan"]:checked');
-    const acaraElements = document.querySelectorAll('input[name="jenis-acara"]:checked');
-<<<<<<< HEAD
-    const tanggalAcaraInput = document.getElementById('tanggal-acara');
-    const tanggalAcara = new Date(tanggalAcaraInput.value);
-    const today = new Date();
-    const minimumDifference = 1; // Minimum difference in days
-=======
-    const tanggalAcara = document.getElementById('tanggal-acara').value;
-    const acaraLainnyaText = document.getElementById('acara-lainnya-text').value;
->>>>>>> cb652851e6fa9d77fc94ca921b4ae25118b97884
+            const nama = document.getElementById('nama').value;
+            const undanganElements = document.querySelectorAll('input[name="jenis-undangan"]:checked');
+            const acaraElements = document.querySelectorAll('input[name="jenis-acara"]:checked');
+            const tanggalAcaraInput = document.getElementById('tanggal-acara');
+            const acaraLainnyaText = document.getElementById('acara-lainnya-text').value.trim();
 
-    // Validasi form
-    if (nama.trim() === '') {
-        alert('Silakan isi nama Anda.');
-        return; // Stop function execution
-    }
+            const today = new Date();
+            const tanggalAcara = new Date(tanggalAcaraInput.value);
+            const minimumDifference = 1; // Minimum difference in days
 
-    if (undanganElements.length === 0) {
-        alert('Silakan pilih jenis undangan.');
-        return; // Stop function execution
-    }
+            // Validasi form
+            if (nama.trim() === '') {
+                alert('Silakan isi nama Anda.');
+                return; // Stop function execution
+            }
 
-    if (acaraElements.length === 0) {
-        alert('Silakan pilih jenis acara.');
-        return; // Stop function execution
-    }
-<<<<<<< HEAD
-    if (tanggalAcaraInput.value === '') {
-=======
-    if (tanggalAcara.trim() === '') {
->>>>>>> cb652851e6fa9d77fc94ca921b4ae25118b97884
-        alert('Silakan pilih tanggal acara.');
-        return; // Stop function execution
-    }
+            if (undanganElements.length === 0) {
+                alert('Silakan pilih jenis undangan.');
+                return; // Stop function execution
+            }
 
-    // Jika jenis acara 'Acara lainnya', pastikan teks acara lainnya diisi
-    if (acaraElements.length === 1 && acaraElements[0].value === 'Acara lainnya' && acaraLainnyaText.trim() === '') {
-        alert('Silakan sebutkan jenis acara lainnya.');
-        return; // Stop function execution
-    }
+            if (acaraElements.length === 0) {
+                alert('Silakan pilih jenis acara.');
+                return; // Stop function execution
+            }
 
-<<<<<<< HEAD
-    // Validasi tanggal acara
-    const differenceInTime = tanggalAcara.getTime() - today.getTime();
-    const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+            if (tanggalAcaraInput.value === '') {
+                alert('Silakan pilih tanggal acara.');
+                return; // Stop function execution
+            }
 
-    if (differenceInDays <= minimumDifference) {
-        alert('Tanggal acara harus lebih dari 1 hari dari tanggal hari ini.');
-        return; // Stop function execution
-    }
+            // Jika jenis acara 'Acara lainnya', pastikan teks acara lainnya diisi
+            if (acaraElements.length === 1 && acaraElements[0].value === 'Acara lainnya' && acaraLainnyaText === '') {
+                alert('Silakan sebutkan jenis acara lainnya.');
+                return; // Stop function execution
+            }
 
-=======
->>>>>>> cb652851e6fa9d77fc94ca921b4ae25118b97884
-    // Proses pengiriman pesan jika validasi berhasil
-    let undangan = [];
-    undanganElements.forEach(el => {
-        undangan.push(el.value);
-    });
+            // Validasi tanggal acara
+            const differenceInTime = tanggalAcara.getTime() - today.getTime();
+            const differenceInDays = differenceInTime / (1000 * 3600 * 24);
 
-    let acara = [];
-    acaraElements.forEach(el => {
-        acara.push(el.value);
-    });
+            if (differenceInDays <= minimumDifference) {
+                alert('Tanggal acara harus lebih dari 1 hari dari tanggal hari ini.');
+                return; // Stop function execution
+            }
 
-    if (acara.includes('Acara lainnya')) {
-        acara = acara.map(item => item === 'Acara lainnya' ? `Acara lainnya: ${acaraLainnyaText}` : item);
-    }
+            // Proses pengiriman pesan jika validasi berhasil
+            let undangan = [];
+            undanganElements.forEach(el => {
+                undangan.push(el.value);
+            });
 
-    const message = `Customer Service - INVIM Website
+            let acara = [];
+            acaraElements.forEach(el => {
+                acara.push(el.value);
+            });
+
+            if (acara.includes('Acara lainnya')) {
+                acara = acara.map(item => item === 'Acara lainnya' ? `Acara lainnya: ${acaraLainnyaText}` : item);
+            }
+
+            const message = `Customer Service - INVIM Website
 1. Nama: ${nama}
 2. Undangan: ${undangan.join(', ')}
 3. Jenis Acara: ${acara.join(', ')}
-<<<<<<< HEAD
 4. Tanggal Acara: ${tanggalAcaraInput.value}`;
 
-    const whatsappURL = `https://api.whatsapp.com/send?phone=6285163594245&text=${encodeURIComponent(message)}`;
+            const whatsappURL = `https://api.whatsapp.com/send?phone=6285163594245&text=${encodeURIComponent(message)}`;
 
-    window.open(whatsappURL, '_blank');
-}
-
-=======
-4. Tanggal Acara: ${tanggalAcara}`;
-
-    const whatsappURL = `https://api.whatsapp.com/send?phone=6285163594245&text=${encodeURIComponent(message)}`;
-
-    window.open(whatsappURL, '_blank');
-}
->>>>>>> cb652851e6fa9d77fc94ca921b4ae25118b97884
-
+            window.open(whatsappURL, '_blank');
+        }
     </script>
 </body>
 </html>

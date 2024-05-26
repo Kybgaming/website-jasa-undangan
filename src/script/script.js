@@ -35,32 +35,41 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
     
     const videoJpgNonWeddingInvitations = [
-        { name: 'Undangan Video Non-Wedding 1', price: 'IDR 10.000', image: './picture/card/card-klasik1.webp'},
-        { name: 'Undangan Video Non-Wedding 2', price: 'IDR 12.000', image: './picture/card/card-klasik1.webp' },
-        { name: 'Undangan Video Non-Wedding 3', price: 'IDR 11.000', image: './picture/card/card-klasik1.webp' },
-        { name: 'Undangan Video Non-Wedding 4', price: 'IDR 9.000', image: './picture/card/card-klasik1.webp' },
-        { name: 'Undangan Video Non-Wedding 5', price: 'IDR 8.000', image: './picture/card/card-klasik1.webp' }
+        { name: 'Undangan Video Wedding 1', price: 'IDR 10.000', image: './picture/card/card-klasik1.webp'},
+        { name: 'Undangan Video Wedding 2', price: 'IDR 12.000', image: './picture/card/card-klasik1.webp' },
+        { name: 'Undangan Video Wedding 3', price: 'IDR 11.000', image: './picture/card/card-klasik1.webp' },
+        { name: 'Undangan Video Wedding 4', price: 'IDR 9.000', image: './picture/card/card-klasik1.webp' },
+        { name: 'Undangan Video Wedding 5', price: 'IDR 8.000', image: './picture/card/card-klasik1.webp' },
+        { name: 'Undangan foto Non-Wedding 1', price: 'IDR 10.000', image: './picture/card/card-klasik1.webp'},
+        { name: 'Undangan foto Non-Wedding 2', price: 'IDR 12.000', image: './picture/card/card-klasik1.webp' },
+        { name: 'Undangan foto Non-Wedding 3', price: 'IDR 11.000', image: './picture/card/card-klasik1.webp' },
+        { name: 'Undangan foto Non-Wedding 4', price: 'IDR 9.000', image: './picture/card/card-klasik1.webp' },
+        { name: 'Undangan foto Non-Wedding 5', price: 'IDR 8.000', image: './picture/card/card-klasik1.webp' }
     ];
 
-    // Function to save scroll position and selected type to localStorage
+    // Fungsi untuk menyimpan posisi scroll dan tipe yang dipilih ke localStorage
     function saveToLocalStorage(type) {
         localStorage.setItem('selectedType', type);
         localStorage.setItem('scrollPosition', window.scrollY);
     }
 
-    // Function to show invitations based on the selected type
-    window.showInvitations = function(type) {
+    // Fungsi untuk menampilkan undangan berdasarkan tipe yang dipilih
+    window.showInvitations = function(type, searchTerm = '') {
         const container = document.getElementById('invitationCards');
-        container.innerHTML = ''; // Clear existing content
+        container.innerHTML = ''; // Hapus konten yang ada
 
         let invitations = [];
 
         if (type === 'Website') {
-            // Display website invitations (wedding and non-wedding)
+            // Tampilkan undangan website (pernikahan dan non-pernikahan)
             invitations = allInvitations.wedding.concat(allInvitations.nonWedding);
         } else if (type === 'Video/Jpg') {
-            // Display video/jpg invitations (wedding and non-wedding)
+            // Tampilkan undangan video/jpg (pernikahan dan non-pernikahan)
             invitations = videoJpgWeddingInvitations.concat(videoJpgNonWeddingInvitations);
+        }
+
+        if (searchTerm) {
+            invitations = invitations.filter(invitation => invitation.name.toLowerCase().includes(searchTerm.toLowerCase()));
         }
 
         invitations.forEach(invitation => {
@@ -83,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
             container.innerHTML += cardHTML;
         });
 
-        // Set active effect on service buttons
+        // Set efek aktif pada tombol layanan
         const allServicesButtons = document.querySelectorAll('.layanan button');
         allServicesButtons.forEach(button => {
             button.classList.remove('active');
@@ -92,19 +101,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Update catalog title based on the selected button
+        // Perbarui judul katalog berdasarkan tombol yang dipilih
         document.querySelector('.judul-katalog').textContent = `Katalog Undangan ${type}`;
 
-        // Save selected type to localStorage
+        // Simpan tipe yang dipilih ke localStorage
         saveToLocalStorage(type);
     };
 
-    // Function to save scroll position to localStorage
+    // Fungsi untuk menyimpan posisi scroll ke localStorage
     function saveScrollPosition() {
         localStorage.setItem('scrollPosition', window.scrollY);
     }
 
-    // Function to restore scroll position and selected type from localStorage
+    // Fungsi untuk memulihkan posisi scroll dan tipe yang dipilih dari localStorage
     function restoreFromLocalStorage() {
         const selectedType = localStorage.getItem('selectedType');
         const scrollPosition = localStorage.getItem('scrollPosition');
@@ -121,22 +130,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event listeners
     window.addEventListener('scroll', saveScrollPosition);
     window.addEventListener('load', restoreFromLocalStorage);
+
+    // Event listener untuk pencarian
+    document.getElementById('searchInput').addEventListener('input', function() {
+        const selectedType = localStorage.getItem('selectedType') || 'Website';
+        const searchTerm = this.value;
+        showInvitations(selectedType, searchTerm);
+    });
 });
 
-// Get the logo element
+// Dapatkan elemen logo
 const logo = document.querySelector('.logo');
 
-// Function to add rounded border to logo when scrolled
+// Fungsi untuk menambahkan border bulat pada logo saat di-scroll
 function addRoundedBorder() {
     logo.classList.add('scrolled');
 }
 
-// Function to remove rounded border from logo when at the top
+// Fungsi untuk menghapus border bulat pada logo saat berada di atas
 function removeRoundedBorder() {
     logo.classList.remove('scrolled');
 }
 
-// Event listener for scroll event
+// Event listener untuk event scroll
 window.addEventListener('scroll', () => {
     if (window.scrollY > 0) {
         addRoundedBorder();
