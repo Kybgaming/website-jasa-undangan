@@ -1,14 +1,14 @@
 
 export const allInvitations = {
     wedding: [
-        { name: 'Undangan Pernikahan Klasik1', price: 'IDR 7.000', image: './picture/card/card-klasik1.webp' },
-        { name: 'Undangan Pernikahan Modern2', price: 'IDR 8.000', image: './picture/card/card-klasik1.webp' },
-        { name: 'Undangan Pernikahan Elegan3', price: 'IDR 9.000', image: './picture/card/card-klasik1.webp' },
-        { name: 'Undangan Pernikahan Minimalis4', price: 'IDR 6.500', image: './picture/card/card-klasik1.webp' },
-        { name: 'Undangan Pernikahan Rustic5', price: 'IDR 7.500', image: './picture/card/card-klasik1.webp' },
-        { name: 'Undangan Pernikahan Vintage6', price: 'IDR 8.500', image: './picture/card/card-klasik1.webp' },
-        { name: 'Undangan Pernikahan Outdoor', price: 'IDR 7.800', image: './picture/card/card-klasik1.webp' },
-        { name: 'Undangan Pernikahan Beach', price: 'IDR 8.200', image: './picture/card/card-klasik1.webp' },
+        { name: 'Undangan Pernikahan Klasik1', price: 'IDR 7.000', image: './picture/card/tema-wedding-simpel/tema-simpel (1).webp'},
+        { name: 'Undangan Pernikahan Modern2', price: 'IDR 8.000', image: './picture/card/tema-wedding-simpel/tema-simpel (2).webp' },
+        { name: 'Undangan Pernikahan Elegan3', price: 'IDR 9.000', image: './picture/card/tema-wedding-simpel/tema-simpel (3).webp' },
+        { name: 'Undangan Pernikahan Minimalis4', price: 'IDR 6.500', image: './picture/card/tema-wedding-simpel/tema-simpel (4).webp'},
+        { name: 'Undangan Pernikahan Rustic5', price: 'IDR 7.500', image: './picture/card/tema-wedding-simpel/tema-simpel (5).webp'},
+        { name: 'Undangan Pernikahan Vintage6', price: 'IDR 8.500', image: './picture/card/tema-wedding-simpel/tema-simpel (6).webp'},
+        { name: 'Undangan Pernikahan Outdoor', price: 'IDR 7.800', image: './picture/card/tema-wedding-simpel/tema-simpel (7).webp'},
+        { name: 'Undangan Pernikahan Beach', price: 'IDR 8.200', image: './picture/card/tema-wedding-simpel/tema-simpel (8).webp'},
         { name: 'Undangan Pernikahan Royal', price: 'IDR 9.500', image: './picture/card/card-klasik1.webp' },
         { name: 'Undangan Pernikahan Simple', price: 'IDR 6.000', image: './picture/card/card-klasik1.webp' },
         { name: 'Undangan Pernikahan Klasik', price: 'IDR 7.000', image: './picture/card/card-klasik1.webp' },

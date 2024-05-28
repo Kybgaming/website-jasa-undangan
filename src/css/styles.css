@@ -31,6 +31,9 @@ body{
         opacity: 1;
     }
 }
+.invit-card btn{
+  width: 20px;
+}
 
 .slide-in {
     animation: slideIn 0.5s ease forwards;
@@ -123,8 +126,9 @@ body{
   }
   
   .card-img-top {
+
+      width: 120%;
       height: 200px;
-      object-fit: cover;
   }
   
   .card-title {
@@ -241,6 +245,274 @@ body{
   width: 100%; /* Input akan memperluas saat fokus */
   outline: none;
 }
+/* Style untuk bagian keunggulan */
+.keunggulan {
+  margin-top: 10px;
+  background-color: #f8f9fa;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.keunggulan h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.keunggulan p {
+  font-family: Arial, sans-serif;
+  font-size: 1.2em;
+  margin-bottom: 40px;
+}
+
+.keunggulan-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.keunggulan-card > div {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 20px;
+  width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.keunggulan-card > div:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.keunggulan-card i {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.keunggulan-card p {
+  margin: 0;
+}
+.cara-pesan {
+  background-color: #f8f9fa; /* Light background for better readability */
+  padding: 2rem; /* Padding around the section */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-top: 2rem; /* Space above the section */
+}
+
+.cara-pesan h4 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1rem; /* Space below the heading */
+}
+
+.cara-pesan p {
+  text-align: center;
+  margin-bottom: 2rem; /* Space below the paragraph */
+}
+
+.cara-pesan-card {
+  display: flex;
+  flex-wrap: wrap; /* Make the cards wrap on smaller screens */
+  justify-content: space-around; /* Space out the cards evenly */
+}
+
+.cara-pesan-card div {
+  background-color: white;
+  padding: 1rem;
+  margin: 0.5rem;
+  flex: 1 1 calc(25% - 1rem); /* Responsive width with space for margins */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 10px; /* Rounded corners */
+  text-align: center; /* Center the text */
+}
+
+.cara-pesan-card div p {
+  margin: 0.5rem 0; /* Space around the paragraphs */
+}
+
+.cara-pesan-card div i {
+  color: #007bff; /* Primary color for icons */
+  margin-bottom: 0.5rem; /* Space below the icon */
+  font-size: 1.5rem; /* Larger icon size */
+}
+.Preview {
+  background-color: #f8f9fa; /* Light grey background */
+  padding: 20px; /* Add some padding */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-bottom: 30px; /* Space below the section */
+}
+
+.Preview h4 {
+  font-family: 'Great Vibes', cursive; /* Google Font for headings */
+  font-size: 2.5rem; /* Large font size */
+  color: #343a40; /* Dark color */
+  text-align: center; /* Centered text */
+}
+
+.Preview p {
+  font-family: 'Arial, Helvetica, sans-serif'; /* Fallback fonts */
+  font-size: 1rem; /* Standard font size */
+  color: #6c757d; /* Grey color */
+  text-align: center; /* Centered text */
+  margin-top: 10px; /* Space above paragraphs */
+}
+
+.Preview button {
+  display: block; /* Make buttons block-level elements */
+  margin: 20px auto; /* Center buttons horizontally */
+  padding: 10px 20px; /* Button padding */
+  font-size: 1.2rem; /* Larger font size */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #007bff; /* Bootstrap primary color */
+  color: #fff; /* White text */
+  cursor: pointer; /* Pointer cursor */
+}
+
+.Preview button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.Preview .text-center {
+  margin-top: 20px; /* Add space above the heading */
+}
+/* Style untuk elemen promotion */
+.promotion {
+  background-color: #f8f9fa; /* Warna latar belakang yang cerah */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 20px 0;
+}
+
+.promotion h4 {
+  font-family: 'Great Vibes', cursive; /* Font yang digunakan */
+  font-size: 2.5em;
+  color: #343a40;
+  margin-bottom: 10px;
+}
+
+.promotion p {
+  font-size: 1.2em;
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+/* Style untuk card di dalam promotion */
+.card-promotion {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card-wedding-web {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 300px;
+  flex: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+.card-wedding-video {
+  background-color: #012251;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 300px;
+  flex: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.card-wedding-web:hover, .card-wedding-video:hover {
+  transform: scale(1.05);
+}
+
+.card-wedding-web h4 {
+  font-size: 1.5em;
+  color: #343a40;
+  margin-bottom: 10px;
+}
+.card-wedding-video h4 {
+  font-size: 1.5em;
+  color: #fefeff;;
+  margin-bottom: 10px;
+}
+
+.card-wedding-web ul, .card-wedding-video ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.card-wedding-web li {
+  font-size: 1em;
+  color: #495057;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+}
+.card-wedding-video li {
+  font-size: 1em;
+  color: #fefeff;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+}
+
+.card-wedding-web li::before, .card-wedding-video li::before {
+  content: '\f00c'; /* Font Awesome icon code for check mark */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #28a745;
+}
+
+
+.harga-special .harga-awal {
+  text-decoration: line-through;
+  color: #dc3545;
+  font-size: 1.2em;
+}
+
+.harga-special .discount {
+  color: #28a745;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.order {
+  border: 3px solid white;
+  display: inline-block;
+  background-color: #010731;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.order:hover {
+  background-color: #218838;
+}
+
+.order a {
+  color: #fff;
+  text-decoration: none;
+}
+
+
 
   /* // X-Small devices (portrait phones, less than 576px)
   // No media query for `xs` since this is the default in Bootstrap */
@@ -363,6 +635,9 @@ body{
       font-size: 15px;
       margin-bottom: 10px;
   }
+  .keunggulan-card > div {
+    width: 100%;
+}
   }
   @media (min-width: 576px) { 
       body{

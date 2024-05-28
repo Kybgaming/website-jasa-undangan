@@ -1,21 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let scrollToTopBtn = document.getElementById("scrollToTopBtn"); // Deklarasi tombol scrollToTopBtn
+
     import('./data-undangan.js').then(({ allInvitations, videoJpgWeddingInvitations, videoJpgNonWeddingInvitations }) => {
-        // Fungsi untuk menampilkan undangan
-        function showInvitations(type, searchTerm = '', limit = 10) {
+
+        // Fungsi untuk menyimpan posisi scroll dan tipe yang dipilih ke localStorage
+        function saveToLocalStorage(type) {
+            localStorage.setItem('selectedType', type);
+            localStorage.setItem('scrollPosition', window.scrollY);
+        }
+
+        // Fungsi untuk menampilkan undangan berdasarkan tipe yang dipilih
+        window.showInvitations = function(type, searchTerm = '', limit = 10) {
             const container = document.getElementById('invitationCards');
-            container.innerHTML = ''; // Kosongkan kontainer
+            container.innerHTML = ''; // Hapus konten yang ada
 
             let invitations = [];
-
-            // Menentukan undangan berdasarkan tipe
             if (type === 'Website') {
+                // Tampilkan undangan website (pernikahan dan non-pernikahan)
                 invitations = allInvitations.wedding.concat(allInvitations.nonWedding);
             } else if (type === 'Video/Jpg') {
+                // Tampilkan undangan video/jpg (pernikahan dan non-pernikahan)
                 invitations = videoJpgWeddingInvitations.concat(videoJpgNonWeddingInvitations);
             }
 
-            // Filter undangan berdasarkan pencarian jika ada
             if (searchTerm) {
                 invitations = invitations.filter(invitation => invitation.name.toLowerCase().includes(searchTerm.toLowerCase()));
             }
@@ -23,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Batasi jumlah undangan yang ditampilkan sesuai dengan limit
             const invitationsToShow = invitations.slice(0, limit);
 
-            // Tampilkan undangan
             invitationsToShow.forEach(invitation => {
                 const whatsappMessage = `Halo, saya tertarik dengan ${invitation.name} yang berharga ${invitation.price}. Bisa dibantu?`;
                 const whatsappURL = `https://wa.me/6285163594245?text=${encodeURIComponent(whatsappMessage)}`;
@@ -35,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="card-body col-sm-12">
                                 <h5 class="card-title">${invitation.name}</h5>
                                 <p class="card-text">${invitation.price}</p>
-                                <a href="${whatsappURL}" target="_blank" class="btn btn-primary col-sm-7"><i class="fas fa-shopping-cart"></i> Pesan</a>
+                                <a href="${whatsappURL}" target="_blank" class="btn btn-primary col-sm-7"><i class="fas fa-shopping-cart"> Pesan</i></a>
                                 <a href="#" class="btn btn-secondary">Preview</a>
                             </div>
                         </div>
@@ -44,16 +49,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 container.innerHTML += cardHTML;
             });
 
-            // Tambahkan tombol "Selengkapnya" jika jumlah undangan melebihi limit
+            // Tambahkan tombol "Show More" jika jumlah undangan melebihi limit
             if (invitations.length > limit) {
-                // Tambahkan ikon Font Awesome dan atur latar belakang bulat
                 const showMoreButton = document.createElement('button');
-                showMoreButton.innerHTML = '<i class="fas fa-arrow-circle-down"></i>';
-                showMoreButton.classList.add('btn', 'btn-primary', 'rounded-circle'); // Tambahkan kelas 'rounded-circle' untuk latar belakang bulat
+                showMoreButton.innerHTML = '<i class="fas fa-arrow-down"></i> Lihat Lebih Banyak';
+                showMoreButton.classList.add('btn', 'mt-4');
                 showMoreButton.addEventListener('click', function() {
-                    showInvitations(type, searchTerm, limit + 10); // Menampilkan 10 undangan tambahan
+                    showInvitations(type, searchTerm, limit + 10); // Tampilkan 10 undangan tambahan
                 });
                 container.appendChild(showMoreButton);
+            }
+
+            // Tambahkan tombol "Show Less" jika limit lebih dari 10
+            if (limit > 10) {
+                const showLessButton = document.createElement('button');
+                showLessButton.innerHTML = '<i class="fas fa-arrow-up"></i> Lihat Lebih Sedikit';
+                showLessButton.classList.add('btn', 'mt-4', 'ml-2');
+                showLessButton.addEventListener('click', function() {
+                    showInvitations(type, searchTerm, Math.max(limit - 10, 10)); // Kurangi 10 undangan
+                });
+                container.appendChild(showLessButton);
             }
 
             // Set efek aktif pada tombol layanan
@@ -70,20 +85,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Simpan tipe yang dipilih ke localStorage
             saveToLocalStorage(type);
-        }
-        function showMoreInvitations(type, searchTerm, limit) {
-            showInvitations(type, searchTerm, limit);
-        
-            // Tambahkan kelas slide-in ke setiap kartu undangan yang baru ditambahkan
-            const newCards = document.querySelectorAll('.card2');
-            newCards.forEach(card => {
-                card.classList.add('slide-in');
-            });
-        }
+        };
 
-        // Fungsi untuk menyimpan posisi scroll dan tipe yang dipilih ke localStorage
-        function saveToLocalStorage(type) {
-            localStorage.setItem('selectedType', type);
+        // Fungsi untuk menyimpan posisi scroll ke localStorage
+        function saveScrollPosition() {
             localStorage.setItem('scrollPosition', window.scrollY);
         }
 
@@ -91,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
         function restoreFromLocalStorage() {
             const selectedType = localStorage.getItem('selectedType');
             const scrollPosition = localStorage.getItem('scrollPosition');
-
+            
             if (selectedType) {
                 showInvitations(selectedType);
             }
@@ -101,38 +106,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // Panggil fungsi untuk memulihkan posisi scroll dan tipe yang dipilih dari localStorage
-        restoreFromLocalStorage();
-
-        // Panggil fungsi untuk menampilkan undangan dengan tipe dan limit awal
-        showInvitations('Website', '', 10);
-
-        // Fungsi untuk menyimpan posisi scroll ke localStorage
-        function saveScrollPosition() {
-            localStorage.setItem('scrollPosition', window.scrollY);
-        }
-
-        // Event listener untuk scroll
+        // Event listeners
         window.addEventListener('scroll', saveScrollPosition);
-        // Event listener untuk scroll
-        window.addEventListener('scroll', () => {
-            // Logika event scroll
-            saveScrollPosition();
-
-            if (window.scrollY > window.innerHeight / 2) {
-                scrollToTopBtn.style.display = "block";
-            } else {
-                scrollToTopBtn.style.display = "none";
-            }
-        });
-
-        // Event listener untuk klik pada tombol
-        scrollToTopBtn.addEventListener("click", () => {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
+        window.addEventListener('load', restoreFromLocalStorage);
 
         // Event listener untuk pencarian
         document.getElementById('searchInput').addEventListener('input', function() {
@@ -140,27 +116,48 @@ document.addEventListener('DOMContentLoaded', function() {
             const searchTerm = this.value;
             showInvitations(selectedType, searchTerm);
         });
+
+        // Event listener untuk tombol scroll to top
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > window.innerHeight / 2) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        });
+
+        scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        showInvitations('Website');
+
     });
-});
 
-// Dapatkan elemen logo
-const logo = document.querySelector('.logo');
+    // Dapatkan elemen logo
+    const logo = document.querySelector('.logo');
 
-// Fungsi untuk menambahkan border bulat pada logo saat di-scroll
-function addRoundedBorder() {
-    logo.classList.add('scrolled');
-}
-
-// Fungsi untuk menghapus border bulat pada logo saat berada di atas
-function removeRoundedBorder() {
-    logo.classList.remove('scrolled');
-}
-
-// Event listener untuk event scroll
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 0) {
-        addRoundedBorder();
-    } else {
-        removeRoundedBorder();
+    // Fungsi untuk menambahkan border bulat pada logo saat di-scroll
+    function addRoundedBorder() {
+        logo.classList.add('scrolled');
     }
+
+    // Fungsi untuk menghapus border bulat pada logo saat berada di atas
+    function removeRoundedBorder() {
+        logo.classList.remove('scrolled');
+    }
+
+    // Event listener untuk event scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 0) {
+            addRoundedBorder();
+        } else {
+            removeRoundedBorder();
+        }
+    });
+
 });
